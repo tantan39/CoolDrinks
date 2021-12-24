@@ -20,11 +20,26 @@ struct CustomizeView: View {
     let sizeOptions = ["Small", "Medium", "Large"]
     
     var caffeine: Int {
-        100
+        var caffeineAmount = drink.caffeine[size]
+        caffeineAmount += (extraShots * 60)
+        if isDecaf {
+            caffeineAmount /= 20
+        }
+        return caffeineAmount
     }
     
     var calories: Int {
-        100
+        var caloriesAmount = drink.baseCalories
+        caloriesAmount += (extraShots * 10)
+        
+        if drink.coffeeBased {
+            caloriesAmount += milk?.calories ?? 0
+        } else {
+            caloriesAmount += milk?.calories ?? 0 / 8
+        }
+        caloriesAmount += syrup?.calories ?? 0
+        
+        return caloriesAmount * (size + 1)
     }
     
     var body: some View {
@@ -62,5 +77,6 @@ struct CustomizeView: View {
 struct CustomizeView_Previews: PreviewProvider {
     static var previews: some View {
         CustomizeView(drink: MenuDrink(id: UUID(), name: "menu name", caffeine: [80,100], coffeeBased: true, servedWithMilk: true, baseCalories: 80))
+            .environmentObject(Menu())
     }
 }
