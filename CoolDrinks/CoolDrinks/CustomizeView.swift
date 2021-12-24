@@ -18,6 +18,7 @@ struct CustomizeView: View {
     @State private var extraShots = 0
     @State private var milk: ConfigurationOptions = ConfigurationOptions.none
     @State private var syrup: ConfigurationOptions = ConfigurationOptions.none
+    @State private var isFirstAppear = true
     
     let sizeOptions = ["Small", "Medium", "Large"]
     
@@ -98,6 +99,15 @@ struct CustomizeView: View {
                 history.add(drink, size: sizeOptions[size], extraShots: extraShots, isDecaf: isDecaf, milk: milk, syrup: syrup, caffeine: caffeine, calories: calories)
                 dismiss()
             }
+        }
+        .onAppear {
+            guard isFirstAppear else { return }
+            
+            if drink.servedWithMilk {
+                milk = menu.milkOptions[1]
+            }
+            
+            isFirstAppear = false
         }
     }
 }
