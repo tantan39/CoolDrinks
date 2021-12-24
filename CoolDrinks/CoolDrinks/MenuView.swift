@@ -21,16 +21,21 @@ struct MenuView: View {
                     ForEach(menu.sections) { section in
                         Section {
                             ForEach(section.drinks) { item in
-                                VStack {
-                                    Image(item.image)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .cornerRadius(10)
-                                    Text(item.name)
-                                        .font(.system(.body, design: .serif))
-
+                                NavigationLink {
+                                    CustomizeView(drink: item)
+                                } label: {
+                                    VStack {
+                                        Image(item.image)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .cornerRadius(10)
+                                        Text(item.name)
+                                            .font(.system(.body, design: .serif))
+                                        
+                                    }
+                                    .padding(.bottom)
                                 }
-                                .padding(.bottom)
+                                .buttonStyle(.plain)
                             }
                         } header: {
                             Text(section.name)

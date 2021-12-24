@@ -15,6 +15,7 @@
 		B458E3BA277556A700E26DCA /* MenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B458E3B9277556A700E26DCA /* MenuSection.swift */; };
 		B458E3BC2775578E00E26DCA /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B458E3BB2775578E00E26DCA /* MenuView.swift */; };
 		B458E3BE2775597600E26DCA /* Menu.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B458E3BD2775597600E26DCA /* Menu.swift.swift */; };
+		B458E3C02776141D00E26DCA /* CustomizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B458E3BF2776141D00E26DCA /* CustomizeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		B458E3B9277556A700E26DCA /* MenuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSection.swift; sourceTree = "<group>"; };
 		B458E3BB2775578E00E26DCA /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		B458E3BD2775597600E26DCA /* Menu.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift.swift; sourceTree = "<group>"; };
+		B458E3BF2776141D00E26DCA /* CustomizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				B458E3B9277556A700E26DCA /* MenuSection.swift */,
 				B458E3BD2775597600E26DCA /* Menu.swift.swift */,
 				B458E3BB2775578E00E26DCA /* MenuView.swift */,
+				B458E3BF2776141D00E26DCA /* CustomizeView.swift */,
 				B458E3AD2775293400E26DCA /* Assets.xcassets */,
 				B458E3B72775567C00E26DCA /* menu.json */,
 				B458E3AF2775293400E26DCA /* Preview Content */,
@@ -154,6 +157,7 @@
 				B458E3BC2775578E00E26DCA /* MenuView.swift in Sources */,
 				B458E3BE2775597600E26DCA /* Menu.swift.swift in Sources */,
 				B458E3AC2775293300E26DCA /* ContentView.swift in Sources */,
+				B458E3C02776141D00E26DCA /* CustomizeView.swift in Sources */,
 				B458E3AA2775293300E26DCA /* CoolDrinksApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
