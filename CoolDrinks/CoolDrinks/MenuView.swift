@@ -17,7 +17,7 @@ struct MenuView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVGrid(columns: columns) {
+                LazyVGrid(columns: columns, pinnedViews: .sectionHeaders) {
                     ForEach(menu.sections) { section in
                         Section {
                             ForEach(section.drinks) { item in
@@ -37,6 +37,7 @@ struct MenuView: View {
                                 .font(.system(.title, design: .serif))
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding([.top, .bottom, .trailing], 5)
+                                .background(Color.white)
                         }
                     }
                 }
