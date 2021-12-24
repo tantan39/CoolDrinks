@@ -11,6 +11,12 @@ struct MenuSection: Identifiable, Codable {
     let id: UUID
     let name: String
     let drinks: [MenuDrink]
+    
+    func matches(for search: String) -> [MenuDrink] {
+        let trimmed = search.trimmingCharacters(in: .whitespaces)
+        if trimmed.isEmpty { return drinks }
+        return drinks.filter({ $0.name.localizedCaseInsensitiveContains(search) })
+    }
 }
 
 struct MenuDrink: Identifiable, Codable {
