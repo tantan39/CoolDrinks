@@ -60,7 +60,27 @@ struct CustomizeView: View {
             } header: {
                 Text("Basic Options")
             }
-        
+            
+            Section {
+                Picker("Milks", selection: $milk) {
+                    ForEach(menu.milkOptions) { option in
+                        Text(option.name)
+                            .tag(option)
+                    }
+                }
+                
+                if drink.coffeeBased {
+                    Picker("Syrup", selection: $syrup) {
+                        ForEach(menu.syrupOptions) { option in
+                            Text(option.name)
+                                .tag(option)
+                        }
+                    }
+                }
+            } header: {
+                Text("Customizations")
+            }
+            
             Section {
                 Text("**Caffeine**: \(caffeine) mg")
                 Text("**Calories**: \(calories)")

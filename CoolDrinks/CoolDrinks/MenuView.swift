@@ -23,6 +23,7 @@ struct MenuView: View {
                             ForEach(section.drinks) { item in
                                 NavigationLink {
                                     CustomizeView(drink: item)
+                                        .environmentObject(menu)
                                 } label: {
                                     VStack {
                                         Image(item.image)
