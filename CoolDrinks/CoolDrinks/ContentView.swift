@@ -45,6 +45,20 @@ struct ContentView: View {
                             Text("\(serving.caffeine) mg")
                             Text("\(serving.calories)")
                         }
+                        .swipeActions {
+                            Button(role: .destructive) {
+                                history.delete(serving)
+                            } label: {
+                                Label("Delete", image: "trash")
+                            }
+
+                            Button {
+                                history.reorder(serving)
+                            } label: {
+                                Label("Repeat", image: "repeat")
+                            }
+                            .tint(.blue)
+                        }
                     }
                 }
             }
