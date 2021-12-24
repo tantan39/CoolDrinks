@@ -46,6 +46,8 @@ struct CustomizeView: View {
             }
 
         }
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle(drink.name)
     }
 }
 
