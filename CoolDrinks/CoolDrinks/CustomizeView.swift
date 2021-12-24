@@ -9,9 +9,13 @@ import SwiftUI
 
 struct CustomizeView: View {
     let drink: MenuDrink
+    @EnvironmentObject var menu: Menu
     
     @State private var size = 0
     @State private var isDecaf = false
+    @State private var extraShots = 0
+    @State private var milk: ConfigurationOptions?
+    @State private var syrup: ConfigurationOptions?
     
     let sizeOptions = ["Small", "Medium", "Large"]
     
@@ -32,6 +36,10 @@ struct CustomizeView: View {
                     }
                 }
                 .pickerStyle(.segmented)
+                
+                if drink.coffeeBased {
+                    Stepper("Extra shots: \(extraShots)", value: $extraShots, in: 0...8)
+                }
                 
                 Toggle("Decaffeinated", isOn: $isDecaf)
             } header: {
