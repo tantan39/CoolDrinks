@@ -14,8 +14,8 @@ struct CustomizeView: View {
     @State private var size = 0
     @State private var isDecaf = false
     @State private var extraShots = 0
-    @State private var milk: ConfigurationOptions?
-    @State private var syrup: ConfigurationOptions?
+    @State private var milk: ConfigurationOptions = ConfigurationOptions.none
+    @State private var syrup: ConfigurationOptions = ConfigurationOptions.none
     
     let sizeOptions = ["Small", "Medium", "Large"]
     
@@ -33,11 +33,11 @@ struct CustomizeView: View {
         caloriesAmount += (extraShots * 10)
         
         if drink.coffeeBased {
-            caloriesAmount += milk?.calories ?? 0
+            caloriesAmount += milk.calories
         } else {
-            caloriesAmount += milk?.calories ?? 0 / 8
+            caloriesAmount += milk.calories / 8
         }
-        caloriesAmount += syrup?.calories ?? 0
+        caloriesAmount += syrup.calories
         
         return caloriesAmount * (size + 1)
     }
