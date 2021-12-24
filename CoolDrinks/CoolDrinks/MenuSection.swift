@@ -18,4 +18,9 @@ struct MenuDrink: Identifiable, Codable {
     let name: String
     let caffeine: [Int]
     let coffeeBased: Bool
+    
+    var image: String {
+         name.lowercased().replacingOccurrences(of: " ", with: "-")
+    }
+    
 }

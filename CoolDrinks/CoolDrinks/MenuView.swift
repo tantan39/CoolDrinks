@@ -22,8 +22,7 @@ struct MenuView: View {
                         Section {
                             ForEach(section.drinks) { item in
                                 VStack {
-                                    let image = item.name.lowercased().replacingOccurrences(of: " ", with: "-")
-                                    Image(image)
+                                    Image(item.image)
                                         .resizable()
                                         .scaledToFit()
                                         .cornerRadius(10)
