@@ -20,6 +20,8 @@
 		B458E3C427762AB600E26DCA /* Serving.swift in Sources */ = {isa = PBXBuildFile; fileRef = B458E3C327762AB600E26DCA /* Serving.swift */; };
 		B458E3C627762BD600E26DCA /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B458E3C527762BD600E26DCA /* FileManager-DocumentsDirectory.swift */; };
 		B458E3C827762C2A00E26DCA /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = B458E3C727762C2A00E26DCA /* History.swift */; };
+		B47A845F281452C400F574C9 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = B47A845E281452C400F574C9 /* Realm */; };
+		B47A8461281452C400F574C9 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B47A8460281452C400F574C9 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B47A8461281452C400F574C9 /* RealmSwift in Frameworks */,
+				B47A845F281452C400F574C9 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +114,10 @@
 			dependencies = (
 			);
 			name = CoolDrinks;
+			packageProductDependencies = (
+				B47A845E281452C400F574C9 /* Realm */,
+				B47A8460281452C400F574C9 /* RealmSwift */,
+			);
 			productName = CoolDrinks;
 			productReference = B458E3A62775293300E26DCA /* CoolDrinks.app */;
 			productType = "com.apple.product-type.application";
@@ -138,6 +146,9 @@
 				Base,
 			);
 			mainGroup = B458E39D2775293300E26DCA;
+			packageReferences = (
+				B47A845D281452C400F574C9 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = B458E3A72775293300E26DCA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -305,6 +316,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CoolDrinks/Preview Content\"";
+				DEVELOPMENT_TEAM = FL29S3YYFY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -334,6 +346,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CoolDrinks/Preview Content\"";
+				DEVELOPMENT_TEAM = FL29S3YYFY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -377,6 +390,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B47A845D281452C400F574C9 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B47A845E281452C400F574C9 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B47A845D281452C400F574C9 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		B47A8460281452C400F574C9 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B47A845D281452C400F574C9 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B458E39E2775293300E26DCA /* Project object */;
 }

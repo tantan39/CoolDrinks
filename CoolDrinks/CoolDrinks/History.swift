@@ -6,27 +6,26 @@
 //
 
 import Foundation
+import RealmSwift
 
 class History: ObservableObject {
     @Published var servings: [Serving]
     
     let savePath = FileManager.documentsDirectory.appendingPathComponent("SavedDrinks")
+    var localRealm: Realm
     
     init() {
-        do {
-            let data = try Data(contentsOf: savePath)
-            servings = try JSONDecoder().decode([Serving].self, from: data)
-        } catch {
-            servings = []
-        }
+        localRealm = try! Realm()
+        let localModels = localRealm.objects(ServingRealmModel.self)
+        servings = localModels.map { Serving(id: $0.id, name: $0.name, description: $0.desc, caffeine: $0.caffeine, calories: $0.calories )}
+
     }
     
     func save() {
-        do {
-            let data = try JSONEncoder().encode(servings)
-            try data.write(to: savePath, options: [.atomic, .completeFileProtection])
-        } catch {
-            print("Unable to save data")
+        _ = servings.map { serving in
+            try! localRealm.write {
+                localRealm.add(serving.localModel)
+            }
         }
     }
     
@@ -58,20 +57,26 @@ class History: ObservableObject {
         let descriptionString = description.joined(separator: ", ")
         let serving = Serving(id: UUID(), name: drink.name, description: descriptionString, caffeine: caffeine, calories: calories)
         servings.insert(serving, at: 0)
-        save()
+        try! localRealm.write {
+            localRealm.add(serving.localModel)
+        }
     }
     
     func reorder(_ serving: Serving) {
         var copy = serving
         copy.id = UUID()
         servings.insert(copy, at: 0)
-        save()
+        try! localRealm.write {
+            localRealm.add(serving.localModel)
+        }
     }
     
     func delete(_ serving: Serving) {
         if let index = servings.firstIndex(where: { $0.id == serving.id }) {
             servings.remove(at: index)
-            save()
+            try! localRealm.write {
+                localRealm.delete(serving.localModel)
+            }
         }
     }
 }
